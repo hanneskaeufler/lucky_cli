@@ -3,11 +3,11 @@ class WebpackerGenerator
   end
 
   def self.run(project_name : String)
+    puts "Add webpacker config"
     new(project_name).run
   end
 
   def run
-    FileUtils.mkdir_p("#{@project_name}/config")
-    FileUtils.cp("#{__DIR__}/webpacker_templates", "#{@project_name}/config/")
+    FileUtils.cp_r("#{__DIR__}/webpacker_templates", "#{@project_name}/config/")
   end
 end
